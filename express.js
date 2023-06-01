@@ -1,5 +1,19 @@
-var contador;
-let incrementar1 = contador + 1;
-let incrementar5 = contador + 1;
-var relatório = contador;
-document.getElementById("p").innerHTML = relatório;
+const express = require("express");
+const app = express();
+
+let contador = 0;
+
+app.get("/", function (req, res) {
+  res.send("Hello World!");
+});
+
+app.get("/ola", function (req, res) {
+  res.send("Olá Mundo!");
+});
+
+app.get("/contador", function (req, res) {
+  ++contador;
+  res.send({ contador });
+});
+
+app.listen(3000);
